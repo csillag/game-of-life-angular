@@ -29,6 +29,11 @@ export class SessionLifeData implements LifeData {
         Session.set(this.getKey(x, y), populated);
     }
 
+    public switchPopulated(x:number, y:number) {
+        const key = this.getKey(x, y);
+        Session.set(key, !Session.get(key));
+    }
+
     constructor(width: number, height: number, reset?: boolean) {
         this.width = width;
         this.height = height;
