@@ -10,3 +10,13 @@ declare module 'meteor/react-meteor-data' {
     export { createContainer };
 }
 
+
+declare module 'meteor/session' {
+    export module Session {
+        function get(key:string): any;
+        function set(key:string, value:any): void;
+        function clear(key: string): void;
+        function setAuth(key: string, value:any): void;
+        function setPersistent(key: string, value:any): void;
+    }
+}
