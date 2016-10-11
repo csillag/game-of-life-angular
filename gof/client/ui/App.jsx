@@ -9,8 +9,11 @@ export default class App extends Component {
     componentWillMount() {
         // Create a new space, and manually initiate it
         const life = new SessionLifeData(10, 10);
-        life.setPopulated(0, 0, true);
-        life.setPopulated(1, 0, true);
+        life.setPopulated(4, 5, true);
+        life.setPopulated(5, 5, true);
+        life.setPopulated(6, 5, true);
+        life.setPopulated(6, 4, true);
+        life.setPopulated(5, 3, true);
 
         // Put the created data into the component's state
         this.setState({
