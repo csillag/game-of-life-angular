@@ -7,6 +7,9 @@ interface CellGridProps {
     grid: LifeData;
 }
 
+// This react component can render a grid of cells, displaying
+// the state of the cellular automat.
+// The current implementation simply uses and HTML table, with tr and td tags.
 export class CellGrid extends React.Component<CellGridProps,{}> {
 
     private renderCell(x:number, y:number) {

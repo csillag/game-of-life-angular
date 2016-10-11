@@ -1,5 +1,7 @@
 import { LifeData } from './LifeData';
 
+// A naive implementation of the data store for the cellular automaton,
+// also allowing direct manipulation of the data.
 export class SimpleLifeData implements LifeData {
     
     protected width:number;

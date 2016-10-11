@@ -7,9 +7,12 @@ import { CellGrid } from './CellGrid';
 export default class App extends Component {
 
     componentWillMount() {
+        // Create a new space, and manually initiate it
         const life = new SimpleLifeData(3, 3);
         life.set(0, 0, true);
         life.set(1, 0, true);
+
+        // Put the created data into the component's state
         this.setState({
             life,
         });
