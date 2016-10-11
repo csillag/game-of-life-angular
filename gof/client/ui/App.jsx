@@ -42,6 +42,7 @@ export default class App extends Component {
                 </header>
                 <p>This is just a technology experiment, playing with <a target="_bland" href="https://www.meteor.com/">Meteor</a> and <a target="_blank" href="https://facebook.github.io/react/">React</a>.
                 See the source <a target="_bland" href="https://github.com/csillag/game-of-life">on Github</a>.</p>
+                <p>This is a cellular automaton. You can click at the cells in the grid to create/destroy life, or click the "Evolve!" button to apply the automatic rules.</p>
 
                 <CellGrid data={this.state.life} />
 
