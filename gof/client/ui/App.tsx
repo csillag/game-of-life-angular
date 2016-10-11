@@ -1,17 +1,28 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
 import { LifeData } from '../data/LifeData';
 import { evolve } from '../data/engine';
 import { SessionLifeData } from '../data/SessionLifeData';
 import { CellGridMeteorContainer } from './CellGridMeteorContainer';
 
-export default class App extends Component {
+interface AppState {
+    life: LifeData;
+}
 
-    componentWillMount() {
+export class App extends React.Component<{}, AppState> {
+
+    constructor() {
+        super();
+        this.state = {
+            life: null
+        };
+    }
+
+    public componentWillMount() {
         this.reset();
     }
 
-    reset() {
+    protected reset() {
         // Create a new space, and manually initiate it
         const life = new SessionLifeData(10, 10, true);
         life.setPopulated(1, 2, true);
@@ -26,15 +37,15 @@ export default class App extends Component {
         });
     }
 
-    onReset() {
+    protected onReset() {
         this.reset();
     }
 
-    onEvolve() {
+    protected onEvolve() {
         evolve(this.state.life);
     }
     
-    render() {
+    public render() {
         return (
             <div className="container">
                 <header>
