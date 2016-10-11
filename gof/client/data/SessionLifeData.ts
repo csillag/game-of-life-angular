@@ -42,15 +42,21 @@ export class SessionLifeData implements LifeData {
         Session.set(key, !Session.get(key));
     }
 
+    public clear() {
+        const width = this.getWidth();
+        const height = this.getHeight();
+        for (let x = 0; x < width; x++) {
+            for (let y = 0; y < height; y++) {
+                this.setPopulated(x, y, false);
+            }
+        }
+    }
+
     constructor(width: number, height: number, reset?: boolean) {
         this.setWidth(width);
         this.setHeight(height);
         if (reset) {
-            for (let x = 0; x < width; x++) {
-                for (let y = 0; y < height; y++) {
-                    this.setPopulated(x, y, false);
-                }
-            }
+            this.clear();
         }
     }
 }

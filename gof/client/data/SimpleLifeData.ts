@@ -51,5 +51,9 @@ export class SimpleLifeData implements LifeData {
     public switchPopulated(x:number, y:number) {
         this.space[x][y] = !this.space[x][y];
     }
+
+    public clear() {
+        this.allocate();
+    }
     
 }

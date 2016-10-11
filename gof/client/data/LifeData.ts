@@ -8,4 +8,5 @@ export interface LifeData {
     isPopulated(x:number, y:number):boolean;
     setPopulated(x:number, y:number, value: boolean):void;
     switchPopulated(x:number, y:number):void;
+    clear():void;
 }
