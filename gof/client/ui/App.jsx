@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { LifeData } from '../data/LifeData';
+import { evolve } from '../data/engine';
 import { SessionLifeData } from '../data/SessionLifeData';
 import { CellGrid } from './CellGrid';
 
@@ -20,6 +21,10 @@ export default class App extends Component {
             life,
         });
     }
+
+    onClick() {
+        evolve(this.state.life);
+    }
     
     render() {
         return (
@@ -28,8 +33,15 @@ export default class App extends Component {
                     <h1>Game of Life</h1>
                 </header>
 
-            <CellGrid data={this.state.life} />
-      </div>
-    );
-  }
+                <CellGrid data={this.state.life} />
+
+                <div id="controls">
+                    <button onClick={this.onClick.bind(this)}>
+                        Evolve!
+                    </button>
+                </div>
+
+            </div>
+        );
+    }
 }
