@@ -12,8 +12,7 @@ export function evolve(data: LifeData) {
     const height = data.getHeight();
 
     // We will collects the pending changes here
-    const born:Coord[] = [];
-    const died:Coord[] = [];
+    const changes:Coord[] = [];
 
     // Go over all the cells
     for (let x = 0; x < width; x++) {
@@ -49,26 +48,21 @@ export function evolve(data: LifeData) {
                     //   dies, as if by solitude.
                     // Each cell with four or more neighbors dies,
                     //   as if by overpopulation.
-                    died.push(here);
+                    changes.push(here);
                 }
                 // Each cell with two or three neighbors survives.
             } else {
                 if (friends == 3) {
                     // Each cell with three neighbors becomes populated.
-                    born.push(here);
+                    changes.push(here);
                 }
             }
         }
     }
 
-    // OK, now bring new new ones to life
-    born.forEach((c) => {
-        data.setPopulated(c.x, c.y, true);
-    });
-
-    // And terminate the ones on the death list
-    died.forEach((c) => {
-        data.setPopulated(c.x, c.y, false);
+    // OK, execute the changes
+    changes.forEach((c) => {
+        data.switchPopulated(c.x, c.y);
     });
 
 }
