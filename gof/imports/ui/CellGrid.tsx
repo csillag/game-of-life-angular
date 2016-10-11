@@ -39,7 +39,7 @@ export class CellGrid extends React.Component<CellGridProps,{}> {
             rows.push(this.renderRow(y));
         }
         return (
-            <table><tbody>
+            <table className="cell-grid"><tbody>
                 { rows }
             </tbody></table>
         );
