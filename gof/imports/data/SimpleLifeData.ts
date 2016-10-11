@@ -6,7 +6,7 @@ export class SimpleLifeData implements LifeData {
     
     protected width:number;
     protected height:number;
-    protected data:boolean[][];
+    protected space:boolean[][];
 
     public getWidth():number {
         return this.width;
@@ -16,21 +16,21 @@ export class SimpleLifeData implements LifeData {
         return this.height;
     }
 
-    public isAlive(x:number, y:number):boolean {
-        return this.data[x][y];
+    public isPopulated(x:number, y:number):boolean {
+        return this.space[x][y];
     }
 
     constructor(width: number, height: number) {
         this.width = width;
         this.height = height;
-        this.data = [];
+        this.space = [];
         for (let x = 0; x < width; x++) {
-            this.data.push(new Array<boolean>(height));
+            this.space.push(new Array<boolean>(height));
         }
     }
     
-    public set(x:number, y:number, alive:boolean) {
-        this.data[x][y] = alive;
+    public set(x:number, y:number, populated:boolean) {
+        this.space[x][y] = populated;
     }
     
 }

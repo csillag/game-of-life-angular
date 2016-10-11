@@ -16,7 +16,7 @@ export class CellGrid extends React.Component<CellGridProps,{}> {
         return (
             <LifeCell
                 key={"col-"+x}
-                alive={this.props.grid.isAlive(x, y)}
+                populated={this.props.grid.isPopulated(x, y)}
             />
         )
     }
