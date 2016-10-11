@@ -40,6 +40,8 @@ export default class App extends Component {
                 <header>
                     <h1>Game of Life</h1>
                 </header>
+                <p>This is just a technology experiment, playing with <a target="_bland" href="https://www.meteor.com/">Meteor</a> and <a target="_blank" href="https://facebook.github.io/react/">React</a>.
+                See the source <a target="_bland" href="https://github.com/csillag/game-of-life">on Github</a>.</p>
 
                 <CellGrid data={this.state.life} />
 
