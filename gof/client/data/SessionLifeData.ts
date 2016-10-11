@@ -6,15 +6,23 @@ import { LifeData } from './LifeData';
 // based on Meteor's Session.
 export class SessionLifeData implements LifeData {
 
-    protected width:number;
-    protected height:number;
+    protected widthKey = "life-grid-width";
+    protected heightKey = "life-grid-heifht";
 
     public getWidth():number {
-        return this.width;
+        return Session.get(this.widthKey);
+    }
+
+    public setWidth(value:number) {
+        Session.set(this.widthKey, value);
     }
 
     public getHeight():number {
-        return this.height;
+        return Session.get(this.heightKey);
+    }
+
+    public setHeight(value:number) {
+        Session.set(this.heightKey, value);
     }
 
     protected getKey(x:number, y:number):string {
@@ -35,8 +43,8 @@ export class SessionLifeData implements LifeData {
     }
 
     constructor(width: number, height: number, reset?: boolean) {
-        this.width = width;
-        this.height = height;
+        this.setWidth(width);
+        this.setHeight(height);
         if (reset) {
             for (let x = 0; x < width; x++) {
                 for (let y = 0; y < height; y++) {
