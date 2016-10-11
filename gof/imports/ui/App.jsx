@@ -8,7 +8,7 @@ export default class App extends Component {
 
     componentWillMount() {
         // Create a new space, and manually initiate it
-        const life = new SimpleLifeData(3, 3);
+        const life = new SimpleLifeData(10, 10);
         life.set(0, 0, true);
         life.set(1, 0, true);
 
