@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { LifeData } from '../data/LifeData';
-import { LifeCell } from './LifeCell';
+import { LifeCellContainer } from './LifeCell';
 
 interface CellGridProps {
     data: LifeData;
@@ -14,7 +14,7 @@ export class CellGrid extends React.Component<CellGridProps,{}> {
 
     private renderCell(x:number, y:number) {
         return (
-            <LifeCell
+            <LifeCellContainer
                 key={"col-"+x}
                 x={x}
                 y={y}

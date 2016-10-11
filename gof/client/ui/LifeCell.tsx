@@ -15,7 +15,7 @@ interface _LifeCellProps extends LifeCellProps {
 }
 
 // This react component displays one cell in the grid.
-class _LifeCell extends React.Component<_LifeCellProps,{}> {
+class LifeCell extends React.Component<_LifeCellProps,{}> {
 
     static propTypes: React.ValidationMap<_LifeCellProps> = {
         data: React.PropTypes.object.isRequired,
@@ -42,11 +42,11 @@ class _LifeCell extends React.Component<_LifeCellProps,{}> {
     }
 }
 
-export const LifeCell = createContainer<LifeCellProps>((props:LifeCellProps) => {
+export const LifeCellContainer = createContainer<LifeCellProps>((props:LifeCellProps) => {
     return {
         data: props.data,
         x: props.x,
         y: props.y,
         populated: props.data.isPopulated(props.x, props.y),
     };
-}, _LifeCell);
+}, LifeCell);
