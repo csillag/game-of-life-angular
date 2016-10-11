@@ -16,5 +16,9 @@ td.cell.alive {
 }
 
 div#controls {
-    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.grid-size {
+    width: 5em;
 }
