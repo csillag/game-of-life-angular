@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
 
-// App component - represents the whole app
-export default class App extends Component {
-  render() {
-    return (
-      <div className="container">
-        <header>
-          <h1>Game of Life</h1>
-        </header>
+import { LifeData } from '../data/LifeData';
+import { SimpleLifeData } from '../data/SimpleLifeData';
+import { CellGrid } from './CellGrid';
 
-        <p>Content comes here.</p>
+export default class App extends Component {
+
+    componentWillMount() {
+        const life = new SimpleLifeData(3, 3);
+        life.set(0, 0, true);
+        life.set(1, 0, true);
+        this.setState({
+            life,
+        });
+    }
+    
+    render() {
+        return (
+            <div className="container">
+                <header>
+                    <h1>Game of Life</h1>
+                </header>
+
+            <CellGrid grid={this.state.life} />
       </div>
     );
   }
