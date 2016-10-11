@@ -17,7 +17,7 @@ export class SimpleLifeData implements LifeData {
     }
 
     public isPopulated(x:number, y:number):boolean {
-        return this.space[x][y];
+        return !!this.space[x][y];
     }
 
     constructor(width: number, height: number) {
