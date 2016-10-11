@@ -14,7 +14,7 @@ interface _LifeCellProps extends LifeCellProps {
     populated: boolean;
 }
 
-// This react component displays one cell in the grid.
+// This presentational react component displays one cell in the grid.
 class LifeCell extends React.Component<_LifeCellProps,{}> {
 
     static propTypes: React.ValidationMap<_LifeCellProps> = {
@@ -25,8 +25,7 @@ class LifeCell extends React.Component<_LifeCellProps,{}> {
     };
 
     private onClick() {
-        this.props.data.setPopulated(this.props.x, this.props.y,
-                                     !this.props.populated);
+        this.props.data.switchPopulated(this.props.x, this.props.y);
     }
 
     public render() {
@@ -42,6 +41,7 @@ class LifeCell extends React.Component<_LifeCellProps,{}> {
     }
 }
 
+// This container react component acquires the "populated" prop for LifeCell
 export const LifeCellContainer = createContainer<LifeCellProps>((props:LifeCellProps) => {
     return {
         data: props.data,
