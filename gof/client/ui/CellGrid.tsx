@@ -18,7 +18,7 @@ export class CellGrid extends React.Component<CellGridProps,{}> {
                 key={"col-"+x}
                 x={x}
                 y={y}
-                populated={this.props.grid.isPopulated(x, y)}
+                data={this.props.grid}
             />
         )
     }

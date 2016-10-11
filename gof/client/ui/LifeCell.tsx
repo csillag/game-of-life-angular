@@ -1,8 +1,10 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
+import { LifeData } from '../data/LifeData';
+
 interface LifeCellProps {
-    populated: boolean;
+    data: LifeData;
     x: number;
     y: number;
 }
@@ -11,7 +13,7 @@ interface LifeCellProps {
 export class LifeCell extends React.Component<LifeCellProps,{}> {
 
     static propTypes: React.ValidationMap<LifeCellProps> = {
-        populated: React.PropTypes.bool.isRequired,
+        data: React.PropTypes.object.isRequired,
         x: React.PropTypes.number.isRequired,
         y: React.PropTypes.number.isRequired,
     };
@@ -24,9 +26,13 @@ export class LifeCell extends React.Component<LifeCellProps,{}> {
     }
 
     public render() {
+
+        const populated = this.props.data.isPopulated(
+            this.props.x, this.props.y
+        );
         const classes = classNames({
             "cell": true,
-            "alive": this.props.populated
+            "alive": populated
         });
         return <td
             className={classes}
