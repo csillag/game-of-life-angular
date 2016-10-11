@@ -1,12 +1,8 @@
 import { LifeData } from './LifeData';
 
-class Coord {
+interface Coord {
     x: number;
     y: number;
-    constructor(x:number, y:number) {
-        this.x = x;
-        this.y = y;
-    }
 }
 
 // Naive implementation of the calculations for the cell automaton
@@ -22,7 +18,7 @@ export function evolve(data: LifeData) {
     // Go over all the cells
     for (let x = 0; x < width; x++) {
         for (let y = 0; y < height; y++) {
-            const here = new Coord(x,y);
+            const here = { x, y };
 
             // Is this cell current populated?
             let populated = data.isPopulated(x, y);
