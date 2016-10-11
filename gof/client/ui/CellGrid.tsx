@@ -4,13 +4,21 @@ import { LifeData } from '../data/LifeData';
 import { LifeCellMeteorContainer } from './LifeCellMeteorContainer';
 
 interface CellGridProps {
-    data: LifeData;
+    data: any;
+    width: number;
+    height: number;
 }
 
 // This react component can render a grid of cells, displaying
 // the state of the cellular automat.
 // The current implementation simply uses and HTML table, with tr and td tags.
 export class CellGrid extends React.Component<CellGridProps,{}> {
+
+    static propTypes: React.ValidationMap<CellGridProps> = {
+        data: React.PropTypes.object.isRequired,
+        width: React.PropTypes.number.isRequired,
+        height: React.PropTypes.number.isRequired,
+    };
 
     private renderCell(x:number, y:number) {
         return (
@@ -48,7 +56,6 @@ export class CellGrid extends React.Component<CellGridProps,{}> {
     }
     
     public render() {
-//        return this.renderRow(1);
         return this.renderTable();
     }
 }

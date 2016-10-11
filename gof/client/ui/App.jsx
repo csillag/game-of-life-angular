@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { LifeData } from '../data/LifeData';
 import { evolve } from '../data/engine';
 import { SessionLifeData } from '../data/SessionLifeData';
-import { CellGrid } from './CellGrid';
+import { CellGridMeteorContainer } from './CellGridMeteorContainer';
 
 export default class App extends Component {
 
@@ -44,7 +44,7 @@ export default class App extends Component {
                 See the source <a target="_bland" href="https://github.com/csillag/game-of-life">on Github</a>.</p>
                 <p>This is a cellular automaton. You can click at the cells in the grid to create/destroy life, or click the "Evolve!" button to apply the automatic rules.</p>
 
-                <CellGrid data={this.state.life} />
+                <CellGridMeteorContainer data={this.state.life} />
 
                 <div id="controls">
                     <button onClick={this.onEvolve.bind(this)}>
