@@ -8,8 +8,12 @@ import { CellGrid } from './CellGrid';
 export default class App extends Component {
 
     componentWillMount() {
+        this.reset();
+    }
+
+    reset() {
         // Create a new space, and manually initiate it
-        const life = new SessionLifeData(10, 10);
+        const life = new SessionLifeData(10, 10, true);
         life.setPopulated(1, 2, true);
         life.setPopulated(2, 2, true);
         life.setPopulated(3, 2, true);
@@ -22,7 +26,11 @@ export default class App extends Component {
         });
     }
 
-    onClick() {
+    onReset() {
+        this.reset();
+    }
+
+    onEvolve() {
         evolve(this.state.life);
     }
     
@@ -36,8 +44,11 @@ export default class App extends Component {
                 <CellGrid data={this.state.life} />
 
                 <div id="controls">
-                    <button onClick={this.onClick.bind(this)}>
+                    <button onClick={this.onEvolve.bind(this)}>
                         Evolve!
+                    </button>
+                    <button onClick={this.onReset.bind(this)}>
+                        Reset
                     </button>
                 </div>
 
