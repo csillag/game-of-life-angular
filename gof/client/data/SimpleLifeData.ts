@@ -29,7 +29,7 @@ export class SimpleLifeData implements LifeData {
         }
     }
     
-    public set(x:number, y:number, populated:boolean) {
+    public setPopulated(x:number, y:number, populated:boolean) {
         this.space[x][y] = populated;
     }
     
