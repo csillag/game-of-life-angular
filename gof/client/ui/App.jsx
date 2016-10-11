@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
 import { LifeData } from '../data/LifeData';
-import { SimpleLifeData } from '../data/SimpleLifeData';
+import { SessionLifeData } from '../data/SessionLifeData';
 import { CellGrid } from './CellGrid';
 
 export default class App extends Component {
 
     componentWillMount() {
         // Create a new space, and manually initiate it
-        const life = new SimpleLifeData(10, 10);
+        const life = new SessionLifeData(10, 10);
         life.setPopulated(0, 0, true);
         life.setPopulated(1, 0, true);
 
