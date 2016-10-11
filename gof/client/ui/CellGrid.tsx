@@ -4,7 +4,7 @@ import { LifeData } from '../data/LifeData';
 import { LifeCell } from './LifeCell';
 
 interface CellGridProps {
-    grid: LifeData;
+    data: LifeData;
 }
 
 // This react component can render a grid of cells, displaying
@@ -18,14 +18,14 @@ export class CellGrid extends React.Component<CellGridProps,{}> {
                 key={"col-"+x}
                 x={x}
                 y={y}
-                data={this.props.grid}
+                data={this.props.data}
             />
         )
     }
     
     private renderRow(y:number) {
         const cols = []
-        for (let x = 0; x < this.props.grid.getWidth(); x++) {
+        for (let x = 0; x < this.props.data.getWidth(); x++) {
             cols.push(this.renderCell(x,y));
         }        
         return (
@@ -37,7 +37,7 @@ export class CellGrid extends React.Component<CellGridProps,{}> {
 
     private renderTable() {
         const rows = [];
-        for (let y = 0; y < this.props.grid.getHeight(); y++) {
+        for (let y = 0; y < this.props.data.getHeight(); y++) {
             rows.push(this.renderRow(y));
         }
         return (

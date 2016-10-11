@@ -25,7 +25,7 @@ export default class App extends Component {
                     <h1>Game of Life</h1>
                 </header>
 
-            <CellGrid grid={this.state.life} />
+            <CellGrid data={this.state.life} />
       </div>
     );
   }
