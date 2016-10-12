@@ -1,6 +1,9 @@
 FIXLANG = LC_ALL=C
 
-dev:
+prepare:
+	@cd gof; meteor npm install
+
+dev: prepare
 	@cd gof; $(FIXLANG) meteor
 
 build:
