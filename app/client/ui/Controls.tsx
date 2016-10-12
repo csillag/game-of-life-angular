@@ -7,38 +7,36 @@
 import * as React from 'react';
 const NumericInput = require('react-numeric-input');
 
-export interface ControlsActions {
-    evolve():void;
-    reset():void;
-    setSize(value:number):void;
-}
-
 export interface ControlsProps {
     size?: number;
-    actions?: ControlsActions;
+    evolve?():void;
+    reset?():void;
+    setSize?(value:number):void;
 }
 
 export class Controls extends React.Component<ControlsProps,{}> {
 
     static propTypes: React.ValidationMap<ControlsProps> = {
         size: React.PropTypes.number.isRequired,
-        actions: React.PropTypes.object.isRequired,
+        evolve: React.PropTypes.func.isRequired,
+        reset: React.PropTypes.func.isRequired,
+        setSize: React.PropTypes.func.isRequired,
     };
 
     protected renderEvolve() {
-        return (<button onClick={this.props.actions.evolve}>
+        return (<button onClick={this.props.evolve}>
             Evolve!
         </button>)
     }
 
     protected renderReset() {
-        return (<button onClick={this.props.actions.reset}>
+        return (<button onClick={this.props.reset}>
             Reset
         </button>)
     }
 
     protected onSizeChange(value:number) {
-        this.props.actions.setSize(value);
+        this.props.setSize(value);
     }
 
     protected renderSize() {

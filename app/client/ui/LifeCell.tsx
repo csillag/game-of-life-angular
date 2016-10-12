@@ -6,24 +6,20 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-export interface LifeCellActions {
-    switch():void;
-}
-
 export interface LifeCellProps {
     populated?: boolean;
-    actions?: LifeCellActions;
+    switch?():void;
 }
 
 export class LifeCell extends React.Component<LifeCellProps,{}> {
 
     static propTypes: React.ValidationMap<LifeCellProps> = {
-        actions: React.PropTypes.object.isRequired,
+        switch: React.PropTypes.func.isRequired,
         populated: React.PropTypes.bool.isRequired,
     };
 
     private onClick() {
-        this.props.actions.switch();
+        this.props.switch();
     }
 
     public render() {

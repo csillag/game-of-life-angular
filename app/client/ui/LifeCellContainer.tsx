@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 
 import { LifeState } from '../data/LifeState';
 import { setPopulated } from '../data/actions';
-import { LifeCell, LifeCellProps, LifeCellActions } from './LifeCell';
+import { LifeCell, LifeCellProps } from './LifeCell';
 
 interface LifeCellContainerProps {
     x: number;
@@ -28,12 +28,11 @@ function mapDispatchToProps(
     dispatch,
     props:LifeCellContainerProps
 ):LifeCellProps {
-    const actions:LifeCellActions = {
+    return {
         "switch": () => {
             dispatch(setPopulated(props.x, props.y));
         }
-    };
-    return { actions }
+    }
 }
 
 export const LifeCellContainer = connect(
