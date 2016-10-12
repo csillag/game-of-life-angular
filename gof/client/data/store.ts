@@ -1,3 +1,11 @@
+/*
+  This file is the main hub of the application.
+  Contents:
+    - The reducer function (executing the actions)
+    - All the helper functions used by the reducer function
+    - The declaration of the store
+*/
+
 import { Store, createStore } from 'redux';
 
 import { LifeState } from './LifeState';
@@ -70,7 +78,7 @@ function expand(state, size:number):LifeState {
     return result;
 }
 
-// The reducer function
+// The Redux reducer function
 function game(state:LifeState, action:Action) {
     //    console.log("Executing action", action);
     let next:LifeState;
@@ -105,9 +113,5 @@ function game(state:LifeState, action:Action) {
     }
 }
 
-// Our store
+// The Redux store, storing the state of our application
 export const store:Store<LifeState> = createStore(game, getInitialState());
-
-// Some debug output
-// store.subscribe(() => console.log("After action:", store.getState()))
-

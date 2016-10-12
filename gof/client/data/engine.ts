@@ -1,11 +1,13 @@
 import { LifeState } from './LifeState';
 
+// A simple interface for storing coordinates
 interface Coord {
     x: number;
     y: number;
 }
 
 // Naive implementation of the calculations for the cell automaton
+// Returns the list of changed positions
 export function getChanges(state: LifeState):Coord[] {
     // Let's cache these data
     const width = state.size;
