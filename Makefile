@@ -1,12 +1,13 @@
 FIXLANG = LC_ALL=C
 
 prepare:
-	@cd gof; meteor npm install
+	@cd app; meteor npm install
 
 dev: prepare
-	@cd gof; $(FIXLANG) meteor
+	@cd app; $(FIXLANG) meteor
 
 build:
-	@cd gof; meteor-build-client ../docs -p ""
+	@cd app; meteor-build-client ../docs -p ""
 	@touch docs/.nojekyll
+	@echo "This directory hosts the statically builded demo. See here: https://csillag.github.io/game-of-life/" > docs/readme.md
 
