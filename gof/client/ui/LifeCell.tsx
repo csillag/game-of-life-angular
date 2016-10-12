@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
 
-interface LifeCellActions {
+export interface LifeCellActions {
     switch():void;
 }
 
-interface LifeCellProps {
-    populated: boolean;
-    actions: LifeCellActions;
+export interface LifeCellProps {
+    populated?: boolean;
+    actions?: LifeCellActions;
 }
 
 // This presentational react component displays one cell in the grid.

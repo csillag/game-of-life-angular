@@ -1,12 +1,9 @@
 import * as React from 'react';
 
-import { LifeData } from '../data/LifeData';
-import { LifeCellMeteorContainer } from './LifeCellMeteorContainer';
+import { LifeCellContainer } from './LifeCellContainer';
 
-interface CellGridProps {
-    data: any;
-    width: number;
-    height: number;
+export interface CellGridProps {
+    size: number;
 }
 
 // This react component can render a grid of cells, displaying
@@ -15,25 +12,22 @@ interface CellGridProps {
 export class CellGrid extends React.Component<CellGridProps,{}> {
 
     static propTypes: React.ValidationMap<CellGridProps> = {
-        data: React.PropTypes.object.isRequired,
-        width: React.PropTypes.number.isRequired,
-        height: React.PropTypes.number.isRequired,
+        size: React.PropTypes.number.isRequired,
     };
 
     private renderCell(x:number, y:number) {
         return (
-            <LifeCellMeteorContainer
+            <LifeCellContainer
                 key={"col-"+x}
                 x={x}
                 y={y}
-                data={this.props.data}
             />
         )
     }
     
     private renderRow(y:number) {
         const cols = []
-        for (let x = 0; x < this.props.data.getWidth(); x++) {
+        for (let x = 0; x < this.props.size; x++) {
             cols.push(this.renderCell(x,y));
         }        
         return (
@@ -45,7 +39,7 @@ export class CellGrid extends React.Component<CellGridProps,{}> {
 
     private renderTable() {
         const rows = [];
-        for (let y = 0; y < this.props.data.getHeight(); y++) {
+        for (let y = 0; y < this.props.size; y++) {
             rows.push(this.renderRow(y));
         }
         return (

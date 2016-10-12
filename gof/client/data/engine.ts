@@ -1,4 +1,4 @@
-import { LifeData } from './LifeData';
+import { LifeState } from './LifeState';
 
 interface Coord {
     x: number;
@@ -6,10 +6,10 @@ interface Coord {
 }
 
 // Naive implementation of the calculations for the cell automaton
-export function evolve(data: LifeData) {
+export function getChanges(state: LifeState):Coord[] {
     // Let's cache these data
-    const width = data.getWidth();;
-    const height = data.getHeight();
+    const width = state.size;
+    const height = state.size;
 
     // We will collects the pending changes here
     const changes:Coord[] = [];
@@ -26,21 +26,21 @@ export function evolve(data: LifeData) {
     for (let x = 0; x < width; x++) {
         // Determine the cols we have to look at for neighbors
         min_x = (x > 0) ? x-1 : 0;
-        max_x = (x < width) ? x+1 : x;
+        max_x = (x < width-1) ? x+1 : x;
         for (let y = 0; y < height; y++) {
             // Determine the rows we have to look at for neighbors
             min_y = (y > 0) ? y-1 : 0;
-            max_y = (y < height) ? y+1 : y;
+            max_y = (y < height-1) ? y+1 : y;
 
             // Is this cell current populated?
-            populated = data.isPopulated(x, y);
+            populated = state.space[x][y];
 
             // Count the neighbors within this area
             let friends = 0;
             for (let nx = min_x; nx <= max_x; nx++) {
                 for (let ny = min_y; ny <= max_y; ny++) {
                     if ((nx != x) || (ny != y)) { // Isn't this the same cell
-                        if (data.isPopulated(nx, ny)) {
+                        if (state.space[nx][ny]) {
                             friends += 1;
                         }
                     }
@@ -64,9 +64,5 @@ export function evolve(data: LifeData) {
         }
     }
 
-    // OK, execute the changes
-    changes.forEach((c) => {
-        data.switchPopulated(c.x, c.y);
-    });
-
+    return changes;
 }
