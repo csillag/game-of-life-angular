@@ -1,3 +1,9 @@
+/*
+ This is a container component around LifeCell.
+
+ This component is responsible for subscribing to the Redux state (occupied?),
+ and for dispatching the required actions (when clicking).
+ */
 import { connect } from 'react-redux'
 
 import { LifeState } from '../data/LifeState';

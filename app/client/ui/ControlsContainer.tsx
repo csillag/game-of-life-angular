@@ -1,3 +1,9 @@
+/*
+ This is a container component around the Controls.
+
+ This component is responsible for subscribing to the Redux state,
+ and for dispatching the required actions.
+ */
 import { connect } from 'react-redux'
 
 import { LifeState } from '../data/LifeState';

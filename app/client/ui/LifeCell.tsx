@@ -1,3 +1,8 @@
+/*
+ This React component represents one cell in the grid.
+
+ This is purely a presentational component. (See also the LifeCellContainer.)
+ */
 import * as React from 'react';
 import * as classNames from 'classnames';
 
@@ -10,7 +15,6 @@ export interface LifeCellProps {
     actions?: LifeCellActions;
 }
 
-// This presentational react component displays one cell in the grid.
 export class LifeCell extends React.Component<LifeCellProps,{}> {
 
     static propTypes: React.ValidationMap<LifeCellProps> = {

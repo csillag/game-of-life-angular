@@ -1,3 +1,9 @@
+/*
+ This React component represents the controls. (The buttons and input above the cell grid.)
+
+ This is purely a presentational component. (See also the ControlsContainer.)
+*/
+
 import * as React from 'react';
 const NumericInput = require('react-numeric-input');
 

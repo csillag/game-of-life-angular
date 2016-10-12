@@ -1,3 +1,8 @@
+/*
+ This React component represents the Cell Grid, displaying the state of the callular automaton.
+
+ This is purely a presentational component. (See also the CellGridContainer.)
+ */
 import * as React from 'react';
 
 import { LifeCellContainer } from './LifeCellContainer';
@@ -6,8 +11,6 @@ export interface CellGridProps {
     size: number;
 }
 
-// This react component can render a grid of cells, displaying
-// the state of the cellular automat.
 // The current implementation simply uses and HTML table, with tr and td tags.
 export class CellGrid extends React.Component<CellGridProps,{}> {
 

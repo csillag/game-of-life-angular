@@ -5,6 +5,7 @@ import { store } from '../data/store';
 import { CellGridContainer } from './CellGridContainer';
 import { ControlsContainer } from './ControlsContainer';
 
+// This React component represents the whole application
 export class App extends React.Component<{}, {}> {
 
     public render() {
